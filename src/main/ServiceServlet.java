@@ -6,11 +6,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 
 public class ServiceServlet extends HttpServlet{
+    Connection conn = null;
+    Statement stmt = null;
 
     @Override
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
@@ -26,15 +30,14 @@ public class ServiceServlet extends HttpServlet{
 
     @Override
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
-        System.out.println("hehehehe");
+
+
+        PrintWriter out =response.getWriter();
         String value = request.getParameter("name");
         response.setCharacterEncoding("utf8");
-        PrintWriter out = response.getWriter();
-        JdbcService jdbcService = new JdbcService();
-
-
+        JdbcService jd = new JdbcService();
         try {
-            jdbcService.insert(value);
+            jd.insert(value);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
