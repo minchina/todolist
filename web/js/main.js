@@ -4,7 +4,10 @@
 $(window).ready(function(){
     $('#new-todo').keydown(function(e){
         if(e.keyCode==13){//这是一个回车事件
-            console.log($("#new-todo").val());
+            var val = $("#new-todo").val();
+            $.post("/qin",{name:val},function(data){
+                alert("success" + "  "+data);
+            })
         }
     });
 });
