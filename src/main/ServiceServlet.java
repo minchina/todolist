@@ -1,8 +1,5 @@
 package main;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,9 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * Created by minchina on 14-12-23.
- */
+
 public class ServiceServlet extends HttpServlet{
 
     @Override
@@ -31,7 +26,6 @@ public class ServiceServlet extends HttpServlet{
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
         String value;
         value = request.getParameter("name");
-        String result = "123";
         response.setCharacterEncoding("utf8");
         PrintWriter out = response.getWriter();
         out.print(value);

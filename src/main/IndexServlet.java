@@ -8,7 +8,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-public class ToDoServlet extends HttpServlet {
+public class IndexServlet extends HttpServlet {
+
 
     @Override
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException {
@@ -18,7 +19,16 @@ public class ToDoServlet extends HttpServlet {
 
         out.println("<html>");
         out.println("<head><title>Servlet展示页</title></head>");
-        out.println("<body>name:毛宁川" + "<br/> sex:male " +"</body>");
+        out.println("<body>name:秦凡鹏" + "<br/> sex:male " +"</body>");
         out.println("</html>");
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+        String value;
+        value = request.getParameter("name");
+        response.setCharacterEncoding("utf8");
+        PrintWriter out = response.getWriter();
+        out.print(value);
     }
 }
