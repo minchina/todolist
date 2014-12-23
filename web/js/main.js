@@ -7,4 +7,4 @@ $(window).ready(function(){
             console.log($("#new-todo").val());
         }
     });
-})
+});
