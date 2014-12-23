@@ -1,0 +1,25 @@
+{
+  "name": "todolist_v1",
+  "version": "0.0.1",
+  "homepage": "https://github.com/minchina/todolist",
+  "authors": [
+    "minchina <minchina91@gmail.com>"
+  ],
+  "description": "todolist",
+  "keywords": [
+    "mao",
+    "to",
+    "do"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1"
+  }
+}

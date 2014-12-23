@@ -13,14 +13,15 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException {
-
-        response.setContentType("text/html;charset=utf-8");
-        PrintWriter out =response.getWriter();
-
-        out.println("<html>");
-        out.println("<head><title>Servlet展示页</title></head>");
-        out.println("<body>name:秦凡鹏" + "<br/> sex:male " +"</body>");
-        out.println("</html>");
+//
+//        response.setContentType("text/html;charset=utf-8");
+//        PrintWriter out =response.getWriter();
+//
+//        out.println("<html>");
+//        out.println("<head><title>Servlet展示页</title></head>");
+//        out.println("<body>name:秦凡鹏" + "<br/> sex:male " +"</body>");
+//        out.println("</html>");
+//        out.close();
     }
 
     @Override
@@ -30,5 +31,6 @@ public class IndexServlet extends HttpServlet {
         response.setCharacterEncoding("utf8");
         PrintWriter out = response.getWriter();
         out.print(value);
+        out.close();
     }
 }

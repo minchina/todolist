@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class ServiceServlet extends HttpServlet{
@@ -24,10 +26,20 @@ public class ServiceServlet extends HttpServlet{
 
     @Override
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
-        String value;
-        value = request.getParameter("name");
+        System.out.println("hehehehe");
+        String value = request.getParameter("name");
         response.setCharacterEncoding("utf8");
         PrintWriter out = response.getWriter();
+        JdbcService jdbcService = new JdbcService();
+
+
+        try {
+            jdbcService.insert(value);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         out.print(value);
     }
 }
