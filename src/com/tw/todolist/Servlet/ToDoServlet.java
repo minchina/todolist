@@ -26,10 +26,16 @@ public class ToDoServlet extends HttpServlet{
 
         PrintWriter out = response.getWriter();
         String value = request.getParameter("name");
+        String type = request.getParameter("type");
+
         response.setCharacterEncoding("utf8");
         JdbcService jd = new JdbcService();
         try {
-            jd.add(value);
+            if(type.equals("add")) {
+                jd.add(value);
+            }else if(type.equals("delete")){
+                jd.remove(Integer.valueOf(value));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
