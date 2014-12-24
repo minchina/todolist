@@ -49,12 +49,9 @@ public class JdbcService {
     }
 
     public void remove(Integer id) throws SQLException,ClassNotFoundException {
-        System.out.println(id);
         Class.forName(DRIVER);
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
-        if(!conn.isClosed())
-            System.out.println("Succeeded connecting to the Database!");
         java.sql.Statement statement = conn.createStatement();
         String sqlString = "delete from list where id="+id;
         try {
