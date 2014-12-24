@@ -1,29 +1,27 @@
-package main;
+package com.tw.todolist.Services;
 
 
 import java.sql.*;
 import java.sql.Statement;
 
 public class JdbcService {
-    private final String driver = "com.mysql.jdbc.Driver";
-    private final String url = "jdbc:mysql://127.0.0.1:3306/scutcs";
-    private final String user = "root";
-    private final String password = "";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/scutcs";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
 
 
     private Connection getConnection(){
         try {
-            Class.forName(driver);
-            return DriverManager.getConnection(url,user,password);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+            Class.forName(DRIVER);
+            return DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-    public void insert(String value) throws SQLException, ClassNotFoundException {
-        String sqlString = "INSERT INTO list(name) VALUE ('"+value+"')";
+    public void add(String value) throws SQLException, ClassNotFoundException {
+        String sqlString = "INSERT INTO list(name,done) VALUE ('"+value+"','"+0+"')";
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
         try {
@@ -41,14 +39,14 @@ public class JdbcService {
     }
 
     public ResultSet getAll() throws SQLException, ClassNotFoundException {
-        Class.forName(driver);
-        Connection conn = DriverManager.getConnection(url, user, password);
+        Class.forName(DRIVER);
+        Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
         if(!conn.isClosed())
             System.out.println("Succeeded connecting to the Database!");
         java.sql.Statement statement = conn.createStatement();
 
-        String sql = "select * from student";
+        String sql = "select * from list";
         return statement.executeQuery(sql);
 
     }

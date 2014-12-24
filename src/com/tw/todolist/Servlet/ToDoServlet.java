@@ -1,4 +1,6 @@
-package main;
+package com.tw.todolist.Servlet;
+
+import com.tw.todolist.JdbcService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
