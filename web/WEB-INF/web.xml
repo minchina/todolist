@@ -6,21 +6,11 @@
     
     <servlet>
         <servlet-name>ServiceServlet</servlet-name>
-        <servlet-class>main.ServiceServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ServiceServlet</servlet-name>
-        <url-pattern>/qin</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ToDoServlet</servlet-name>
         <servlet-class>main.ToDoServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ToDoServlet</servlet-name>
-        <url-pattern>/mao</url-pattern>
+        <servlet-name>ServiceServlet</servlet-name>
+        <url-pattern>/todo</url-pattern>
     </servlet-mapping>
 </web-app>
