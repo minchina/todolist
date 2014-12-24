@@ -1,6 +1,6 @@
 package com.tw.todolist.Servlet;
 
-import com.tw.todolist.JdbcService;
+import com.tw.todolist.Services.JdbcService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +23,6 @@ public class ToDoServlet extends HttpServlet{
 
     @Override
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
-
 
         PrintWriter out = response.getWriter();
         String value = request.getParameter("name");

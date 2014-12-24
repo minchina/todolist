@@ -6,7 +6,7 @@
     
     <servlet>
         <servlet-name>ServiceServlet</servlet-name>
-        <servlet-class>main.ToDoServlet</servlet-class>
+        <servlet-class>com.tw.todolist.Servlet.ToDoServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
