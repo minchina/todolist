@@ -1,5 +1,5 @@
 $(window).ready(function(){
-    $('#new-todo').keydown(function(e){
+        $('#new-todo').keydown(function(e){
         if(e.keyCode==13){//这是一个回车事件
             var val = $("#new-todo").val();
             $.post("/todolist_v1/todo", {name:val}, function(data){
