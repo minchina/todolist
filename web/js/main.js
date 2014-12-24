@@ -11,9 +11,14 @@ $(window).ready(function(){
             })
         }
     });
+
+    $(".toggle").on("click",function(){
+       console.log("click");
+    });
     $(".destroy").on("click",function(){
         var THIS = $(this).closest("li");
         var data_id = THIS.data().id;
+        console.log(data_id);
         $.post("/todolist_v1/todo",{type:"delete",name:data_id},function(){
             console.log("hehehaha");
             THIS.remove();

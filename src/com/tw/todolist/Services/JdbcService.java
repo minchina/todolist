@@ -43,7 +43,7 @@ public class JdbcService {
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
         java.sql.Statement statement = conn.createStatement();
 
-        String sql = "select * from list";
+        String sql = "select * from list" ;
         return statement.executeQuery(sql);
 
     }
