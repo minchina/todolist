@@ -41,13 +41,34 @@ public class JdbcService {
     public ResultSet getAll() throws SQLException, ClassNotFoundException {
         Class.forName(DRIVER);
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-
-        if(!conn.isClosed())
-            System.out.println("Succeeded connecting to the Database!");
         java.sql.Statement statement = conn.createStatement();
 
         String sql = "select * from list";
         return statement.executeQuery(sql);
+
+    }
+
+    public void remove(Integer id) throws SQLException,ClassNotFoundException {
+        System.out.println(id);
+        Class.forName(DRIVER);
+        Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+
+        if(!conn.isClosed())
+            System.out.println("Succeeded connecting to the Database!");
+        java.sql.Statement statement = conn.createStatement();
+        String sqlString = "delete from list where id="+id;
+        try {
+            statement.execute(sqlString);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                statement.close();
+                conn.close();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
 
     }
 }
