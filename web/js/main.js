@@ -1,12 +1,24 @@
 $(window).ready(function(){
-        $('#new-todo').keydown(function(e){
+    var THIS = $('#new-todo');
+        THIS.keydown(function(e){
         if(e.keyCode==13){//这是一个回车事件
-            var val = $("#new-todo").val();
-            $.post("/todolist_v1/todo", {name:val}, function(data){
+
+            var val = THIS.val();
+            $.post("/todolist_v1/todo", {type:"add",name:val}, function(data){
                 var target = $("#todo-list");
                 target.append(concatString(data));
+                THIS.val("");
             })
         }
+    });
+    $(".destroy").on("click",function(){
+        var THIS = $(this).closest("li");
+        var data_id = THIS.data().id;
+        $.post("/todolist_v1/todo",{type:"delete",name:data_id},function(){
+            console.log("hehehaha");
+            THIS.remove();
+        });
+
     });
 
     function concatString(data){
