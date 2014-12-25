@@ -4,16 +4,24 @@ $(window).ready(function(){
         if(e.keyCode==13){//这是一个回车事件
 
             var val = THIS.val();
-            $.post("/todolist_v1/todo", {type:"add",name:val}, function(data){
+            $.post("/todolist_v1/todo", {type:"add",name:val}, function(val){
+                console.log(val);
                 var target = $("#todo-list");
-                target.append(concatString(data));
+                target.append(concatString(val));
                 THIS.val("");
             })
         }
     });
 
     $(".toggle").on("click",function(){
-       console.log("click");
+
+        var check_box = $(this);
+        if(check_box.prop("checked")){
+            check_box.closest("li").addClass("completed");
+        }else{
+            check_box.closest("li").removeClass("completed");
+
+        }
     });
     $(".destroy").on("click",function(){
         var THIS = $(this).closest("li");
@@ -26,12 +34,12 @@ $(window).ready(function(){
 
     });
 
-    function concatString(data){
+    function concatString(val){
         var expectString =
-            "<li data-id='bf086285-4746-4772-acf3-266e6ba1eb4f'>"+
+            "<li data-id="+"12"+">"+
                 "<div class='view'>"+
                     "<input class='toggle' type='checkbox'>"+
-                    "<label>"+ data +"</label>"+
+                    "<label>"+ val +"</label>"+
                     "<button class='destroy'></button>"+
                 "</div>"+
                 "<input class='edit' value='123'>"+

@@ -1,4 +1,6 @@
 <%@ page import="com.mysql.jdbc.ResultSet" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.tw.todolist.Models.Item" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -20,19 +22,19 @@
   <ul id="todo-list">
 
     <%
-      ResultSet rs = (ResultSet) request.getAttribute("result");
-      while (rs.next()){
+      List<Item> items = (List<Item>) request.getAttribute("result");
+      for(int i=0;i<items.size();i++){
     %>
-    <li data-id="<%=rs.getInt(1)%>">
+    <li data-id="<%=items.get(i).id%>">
       <div class="view">
         <input class="toggle" type="checkbox">
-        <label><%=(rs.getString(2) + "\t")%></label>
+        <label><%=(items.get(i).name+ "\t")%></label>
         <button class="destroy"></button>
       </div>
       <input class="edit" value="12">
     </li>
-    <%}
-      rs.close();
+    <%
+      }
     %>
   </ul>
 </section>
