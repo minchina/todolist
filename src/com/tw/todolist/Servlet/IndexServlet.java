@@ -14,16 +14,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by minchina on 14-12-25.
- */
 public class IndexServlet extends HttpServlet{
-    private List<Item> items = new ArrayList<Item>();
+    private List<Item> toDoList = new ArrayList<Item>();
 
 
     @Override
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        items.clear();
+        toDoList.clear();
         System.out.println("succeed enter get index");
         JdbcService jd = new JdbcService();
         ResultSet resultSet = null;
@@ -37,15 +34,16 @@ public class IndexServlet extends HttpServlet{
         }
 
         try {
+            assert resultSet != null;
             while (resultSet.next()){
-                items.add(new Item(resultSet.getInt(1),resultSet.getString(2),resultSet.getInt(3)));
+                toDoList.add(new Item(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3)));
 
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-        request.setAttribute("result",items);
+        request.setAttribute("toDoList", toDoList);
         rd.forward(request,response);
     }
 }

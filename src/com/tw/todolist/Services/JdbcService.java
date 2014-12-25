@@ -20,6 +20,14 @@ public class JdbcService {
         }
         return null;
     }
+
+    public void update(int data_id,int status) throws SQLException {
+        String sqlString = "UPDATE list SET done = "+ status +" WHERE id="+data_id;
+        Connection connection = getConnection();
+        Statement statement = connection.createStatement();
+        statement.executeUpdate(sqlString);
+
+    }
     public void add(String value) throws SQLException, ClassNotFoundException {
         String sqlString = "INSERT INTO list(name,done) VALUE ('"+value+"','"+0+"')";
         Connection connection = getConnection();

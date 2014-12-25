@@ -32,6 +32,9 @@ public class ToDoServlet extends HttpServlet{
                 jd.add(value);
             }else if(type.equals("delete")){
                 jd.remove(Integer.valueOf(value));
+            }else if(type.equals("update")){
+                String status = request.getParameter("status");
+                jd.update(Integer.valueOf(value),Integer.valueOf(status));
             }
         } catch (Exception e) {
             e.printStackTrace();
