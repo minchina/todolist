@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.sql.*" %>
 <%@ page import="com.tw.todolist.Services.JdbcService" %>
@@ -6,7 +5,7 @@
 <html>
 <head>
   <title>TODO</title>
-  <link rel="stylesheet" href="bower_components/todomvc-common/base.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/todomvc-common/base.css">
 </head>
 <body>
 
@@ -34,7 +33,7 @@
     %>
     <li data-id="<%=rs.getInt(1)%>">
       <div class="view">
-        <input class="toggle" type="checkbox">
+        <input class="toggle" type="checkbox" checked>
         <label><%=(rs.getString(2) + "\t")%></label>
         <button class="destroy"></button>
       </div>
@@ -50,8 +49,8 @@
 <h3>Today is:</h3>
 <%= new java.util.Date()%>
 
-<script src="bower_components/jquery/dist/jquery.js"  ></script>
-<script src="js/main.js"></script>
+<script  src="bower_components/jquery/dist/jquery.js"  ></script>
+<script  src="js/main.js"></script>
 
 </body>
 </html>
