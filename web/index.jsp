@@ -1,4 +1,4 @@
-<%@ page import="com.mysql.jdbc.ResultSet" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.tw.todolist.Models.Item" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -22,26 +22,25 @@
   <ul id="todo-list">
 
     <%
-      List<Item> items = (List<Item>) request.getAttribute("result");
-      for(int i=0;i<items.size();i++){
+      List<Item> toDoItems = (List<Item>)request.getAttribute("toDoList");
     %>
-    <li data-id="<%=items.get(i).id%>">
-      <div class="view">
-        <input class="toggle" type="checkbox">
-        <label><%=(items.get(i).name+ "\t")%></label>
-        <button class="destroy"></button>
-      </div>
-      <input class="edit" value="12">
-    </li>
-    <%
-      }
-    %>
+
+    <c:forEach items="<%= toDoItems %>" var="toDo">
+      <li data-id="${toDo.id}" ${toDo.done==1?"class='completed'":""}>
+        <div class="view">
+          <input class="toggle" type="checkbox" ${toDo.done==1?"checked":""}>
+          <label>${toDo.name}</label>
+          <button class="destroy"></button>
+        </div>
+        <input class="edit" value="${toDo.name}">
+      </li>
+    </c:forEach>
+
   </ul>
 </section>
 <a href="test.jsp" class="active" role="button">Primary link</a>
 
 <h3>Today is:</h3>
-<%= new java.util.Date()%>
 
 <script  src="./bower_components/jquery/dist/jquery.js"  ></script>
 <script  src="./js/main.js"></script>

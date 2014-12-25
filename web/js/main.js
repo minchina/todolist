@@ -14,14 +14,19 @@ $(window).ready(function(){
     });
 
     $(".toggle").on("click",function(){
-
         var check_box = $(this);
+        var data_id = check_box.closest("li").data("id");
         if(check_box.prop("checked")){
-            check_box.closest("li").addClass("completed");
-        }else{
-            check_box.closest("li").removeClass("completed");
+            $.post("/todolist_v1/todo",{type:"update",name:data_id,status:1},function(){
+                check_box.closest("li").addClass("completed");
+            });
 
+        } else{
+            $.post("/todolist_v1/todo",{type:"update",name:data_id,status:0},function(){
+                check_box.closest("li").removeClass("completed");
+            });
         }
+
     });
     $(".destroy").on("click",function(){
         var THIS = $(this).closest("li");
