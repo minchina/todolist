@@ -1,8 +1,7 @@
 package com.tw.todolist.Servlet;
 
 import com.tw.todolist.Models.ToDo;
-import com.tw.todolist.Models.ToDoList;
-import com.tw.todolist.Services.JdService;
+import com.tw.todolist.Models.ToDoService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +18,7 @@ public class IndexServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            toDoList = new ToDoList().getAll();
+            toDoList = new ToDoService().getAll();
         } catch (Exception e) {
             e.printStackTrace();
         }
