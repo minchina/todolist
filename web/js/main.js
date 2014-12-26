@@ -5,7 +5,6 @@ $(window).ready(function(){
 
             var val = THIS.val();
             $.post("/todolist_v1/todo", {type:"add",name:val}, function(val){
-                console.log(val);
                 var target = $("#todo-list");
                 target.append(concatString(val));
                 THIS.val("");
@@ -28,12 +27,31 @@ $(window).ready(function(){
         }
 
     });
+
+    $("label").on("dblclick",function(){
+        var $input = $(this).closest("li").addClass("editing").find('.edit');
+        $input.val($input.val()).focus();
+    });
+
+    $(".edit").on("focusout",function(){
+        var name = $(this).val();
+        var $li = $(this).closest("li");
+        var data_id = $li.data("id");
+        var $label = $li.find("label");
+
+
+        $.post("/todolist_v1/todo",{type:"rename",name:name,id:data_id},function(){
+            $label.text(name);
+            $li.removeClass("editing");
+        });
+
+
+    });
+
     $(".destroy").on("click",function(){
         var THIS = $(this).closest("li");
         var data_id = THIS.data().id;
-        console.log(data_id);
         $.post("/todolist_v1/todo",{type:"delete",name:data_id},function(){
-            console.log("hehehaha");
             THIS.remove();
         });
 
