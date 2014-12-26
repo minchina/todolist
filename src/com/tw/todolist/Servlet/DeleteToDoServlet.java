@@ -1,7 +1,26 @@
 package com.tw.todolist.Servlet;
 
-/**
- * Created by minchina on 14-12-26.
- */
-public class DeleteToDoServlet {
+import com.tw.todolist.Services.JdService;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+
+public class DeleteToDoServlet extends HttpServlet{
+
+    @Override
+    public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        System.out.println(id);
+        try {
+            new JdService().remove(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        out.print("success");
+    }
 }
