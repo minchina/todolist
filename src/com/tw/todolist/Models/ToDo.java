@@ -3,11 +3,12 @@ package com.tw.todolist.Models;
 /**
  * Created by minchina on 14-12-25.
  */
-public class Item {
+public class ToDo {
     private int id;
     private String name;
     private int done;
-    public Item(int id, String name, int done){
+
+    public ToDo(int id, String name, int done) {
         this.id = id;
         this.name = name;
         this.done = done;
