@@ -76,4 +76,13 @@ public class JdbcService {
         }
 
     }
+
+    public void rename(String value, Integer integer) throws ClassNotFoundException, SQLException {
+        Class.forName(DRIVER);
+        Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        java.sql.Statement statement = conn.createStatement();
+
+        String sql = "UPDATE list SET name='"+ value +"' WHERE id="+integer;;
+        statement.executeUpdate(sql);
+    }
 }

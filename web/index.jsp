@@ -38,9 +38,6 @@
 
   </ul>
 </section>
-<a href="test.jsp" class="active" role="button">Primary link</a>
-
-<h3>Today is:</h3>
 
 <script  src="./bower_components/jquery/dist/jquery.js"  ></script>
 <script  src="./js/main.js"></script>

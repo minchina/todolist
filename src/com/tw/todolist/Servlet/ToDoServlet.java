@@ -35,6 +35,9 @@ public class ToDoServlet extends HttpServlet{
             }else if(type.equals("update")){
                 String status = request.getParameter("status");
                 jd.update(Integer.valueOf(value),Integer.valueOf(status));
+            }else if(type.equals("rename")){
+                String id = request.getParameter("id");
+                jd.rename(value,Integer.valueOf(id));
             }
         } catch (Exception e) {
             e.printStackTrace();
