@@ -1,13 +1,17 @@
 $(window).ready(function(){
     var THIS = $('#new-todo');
         THIS.keydown(function(e){
-        if(e.keyCode==13){//这是一个回车事件
-
-            var val = THIS.val();
-            $.post("/todolist_v1/todo", {type:"add",name:val}, function(val){
-                var target = $("#todo-list");
-                target.append(concatString(val));
-                THIS.val("");
+        if(e.keyCode==13){
+            var name = THIS.val();
+            $.ajax({
+                url:"/todolist_v1/add",
+                data:{name:name},
+                type:"POST",
+                success:function(val){
+                    var target = $("#todo-list");
+                    target.append(concatString(val));
+                    THIS.val("");
+                }
             })
         }
     });
@@ -21,7 +25,7 @@ $(window).ready(function(){
             });
 
         } else{
-            $.post("/todolist_v1/todo",{type:"update",name:data_id,status:0},function(){
+            $.post("/todolist_v1/todo", {type:"update", name: data_id, status:0}, function(){
                 check_box.closest("li").removeClass("completed");
             });
         }
