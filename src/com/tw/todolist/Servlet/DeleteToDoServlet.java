@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-public class DeleteToDoServlet extends HttpServlet{
+public class DeleteToDoServlet extends HttpServlet {
 
     @Override
-    public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         Integer id = Integer.valueOf(request.getParameter("id"));
         System.out.println(id);

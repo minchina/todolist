@@ -28,7 +28,7 @@ public class ToDoService {
         jdService.remove(id);
     }
 
-    public void update(Integer id,String name,Integer status) throws SQLException {
-        jdService.update(id,name,status);
+    public void update(Integer id, String name, Integer status) throws SQLException {
+        jdService.update(id, name, status);
     }
 }

@@ -15,7 +15,7 @@ public class AddToDoServlet extends HttpServlet {
     ToDoService toDoList = new ToDoService();
 
     @Override
-    public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         String name = request.getParameter("name");
         try {

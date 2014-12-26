@@ -21,8 +21,8 @@ public class JdService {
         return null;
     }
 
-    public void update(int data_id, String name,int status) throws SQLException {
-        String sqlString = "UPDATE list SET done = " + status +", name = '"+ name +"' WHERE id = " + data_id;
+    public void update(int data_id, String name, int status) throws SQLException {
+        String sqlString = "UPDATE list SET done = " + status + ", name = '" + name + "' WHERE id = " + data_id;
         Connection connection = getConnection();
         Statement statement = connection.createStatement();
         statement.executeUpdate(sqlString);
