@@ -7,9 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by minchina on 14-12-26.
- */
+
 public class ToDoService {
     private List<ToDo> toDoList = new ArrayList<ToDo>();
     JdService jdService = new JdService();
@@ -24,5 +22,13 @@ public class ToDoService {
             toDoList.add(new ToDo(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3)));
         }
         return toDoList;
+    }
+
+    public void delete(Integer id) throws SQLException, ClassNotFoundException {
+        jdService.remove(id);
+    }
+
+    public void update(Integer id,String name,Integer status) throws SQLException {
+        jdService.update(id,name,status);
     }
 }

@@ -13,16 +13,6 @@
         <!--<url-pattern>*.js</url-pattern>-->
         <!--<url-pattern>*.css</url-pattern>-->
     <!--</servlet-mapping>-->
-
-    <servlet>
-        <servlet-name>ToDoServlet</servlet-name>
-        <servlet-class>com.tw.todolist.Servlet.ToDoServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ToDoServlet</servlet-name>
-        <url-pattern>/todo</url-pattern>
-    </servlet-mapping>
-
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>com.tw.todolist.Servlet.IndexServlet</servlet-class>
@@ -31,5 +21,34 @@
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/index/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>com.tw.todolist.Servlet.AddToDoServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteToDoServlet</servlet-name>
+        <servlet-class>com.tw.todolist.Servlet.DeleteToDoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteToDoServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UpdateToDoServlet</servlet-name>
+        <servlet-class>com.tw.todolist.Servlet.UpdateToDoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateToDoServlet</servlet-name>
+        <url-pattern>/update</url-pattern>
     </servlet-mapping>
 </web-app>

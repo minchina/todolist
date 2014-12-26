@@ -16,21 +16,27 @@ $(window).ready(function(){
         }
     });
 
-    $(".toggle").on("click",function(){
-        var check_box = $(this);
-        var data_id = check_box.closest("li").data("id");
-        if(check_box.prop("checked")){
-            $.post("/todolist_v1/todo",{type:"update",name:data_id,status:1},function(){
-                check_box.closest("li").addClass("completed");
-            });
-
-        } else{
-            $.post("/todolist_v1/todo", {type:"update", name: data_id, status:0}, function(){
-                check_box.closest("li").removeClass("completed");
-            });
-        }
+    $(".destroy").on("click",function(){
+        var $li = $(this).closest("li");
+        var data_id = $li.data().id;
+        console.log(data_id);
+        $.ajax({
+            url:"/todolist_v1/delete",
+            data:{id:data_id},
+            type:"POST",
+            success:function(){
+                $li.remove();
+            }
+        })
 
     });
+
+    $(".toggle").on("click",function(){
+        var $check_box = $(this);
+        post_update($check_box);
+    });
+
+
 
     $("label").on("dblclick",function(){
         var $input = $(this).closest("li").addClass("editing").find('.edit');
@@ -42,25 +48,18 @@ $(window).ready(function(){
         var $li = $(this).closest("li");
         var data_id = $li.data("id");
         var $label = $li.find("label");
-
-
-        $.post("/todolist_v1/todo",{type:"rename",name:name,id:data_id},function(){
-            $label.text(name);
-            $li.removeClass("editing");
+        var $check_box = $li.find(".toggle");
+        console.log(data_id,name,is_checked($check_box));
+        $.ajax({
+            url:"/todolist_v1/update",
+            data:{id:data_id,name:name,status:is_checked($check_box)},
+            type:"POST",
+            success:function(){
+                    $label.text(name);
+                    $li.removeClass("editing");
+            }
         });
-
-
     });
-
-    $(".destroy").on("click",function(){
-        var THIS = $(this).closest("li");
-        var data_id = THIS.data().id;
-        $.post("/todolist_v1/todo",{type:"delete",name:data_id},function(){
-            THIS.remove();
-        });
-
-    });
-
     function concatString(val){
         var expectString =
             "<li data-id="+"12"+">"+
@@ -72,6 +71,28 @@ $(window).ready(function(){
                 "<input class='edit' value='123'>"+
             "</li>";
         return expectString;
+    }
+
+    function post_update($check_box){
+        var $li = $check_box.closest("li");
+        var data_id = $li.data("id");
+        var name = $li.find(".edit").val();
+        $.ajax({
+            url:"/todolist_v1/update",
+            data:{id:data_id,name:name,status:is_checked($check_box)},
+            type:"POST",
+            success:function(){
+                $check_box.closest("li").toggleClass("completed");
+            }
+        })
+    }
+
+    function is_checked($check_box){
+        if($check_box.prop("checked")){
+            return 1
+        }
+        return 0;
+
     }
 });
 

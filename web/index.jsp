@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.tw.todolist.Models.Item" %>
+<%@ page import="com.tw.todolist.Models.ToDo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -22,11 +22,11 @@
   <ul id="todo-list">
 
     <%
-      List<Item> toDoItems = (List<Item>)request.getAttribute("toDoList");
+      List<ToDo> toDoItems = (List<ToDo>)request.getAttribute("toDoList");
     %>
 
     <c:forEach items="<%= toDoItems %>" var="toDo">
-      <li data-id="${toDo.id}" ${toDo.done==1?"class='completed'":""}>
+      <li data-id="${toDo.id}" ${toDo.done==1? "class='completed'":""}>
         <div class="view">
           <input class="toggle" type="checkbox" ${toDo.done==1?"checked":""}>
           <label>${toDo.name}</label>
