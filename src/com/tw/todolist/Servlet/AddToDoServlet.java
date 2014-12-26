@@ -13,7 +13,7 @@ import java.sql.SQLException;
 /**
  * Created by minchina on 14-12-26.
  */
-public class AddServlet extends HttpServlet {
+public class AddToDoServlet extends HttpServlet {
     ToDoList toDoList = new ToDoList();
 
     @Override

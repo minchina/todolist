@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by minchina on 14-12-26.
  */
-public class ToDoList {
+public class ToDoService {
     private List<ToDo> toDoList = new ArrayList<ToDo>();
     JdService jdService = new JdService();
 
