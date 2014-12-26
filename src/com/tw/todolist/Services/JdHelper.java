@@ -4,7 +4,7 @@ package com.tw.todolist.Services;
 import java.sql.*;
 import java.sql.Statement;
 
-public class JdbcService {
+public class JdHelper {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/scutcs";
     private static final String USER = "root";

@@ -1,5 +1,5 @@
 package com.tw.todolist.Servlet;
-import com.tw.todolist.Services.JdbcService;
+import com.tw.todolist.Services.JdHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,11 +11,9 @@ import java.io.PrintWriter;
 
 //@WebServlet(urlPatterns = {"/"})
 public class ToDoServlet extends HttpServlet{
-    public String uuid;
 
     @Override
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
-//        System.out.println("haha");
     }
 
     @Override
@@ -26,7 +24,7 @@ public class ToDoServlet extends HttpServlet{
         String type = request.getParameter("type");
 
         response.setCharacterEncoding("utf8");
-        JdbcService jd = new JdbcService();
+        JdHelper jd = new JdHelper();
         try {
             if(type.equals("add")) {
                 jd.add(value);

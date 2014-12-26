@@ -1,7 +1,7 @@
 package com.tw.todolist.Servlet;
 
 import com.tw.todolist.Models.Item;
-import com.tw.todolist.Services.JdbcService;
+import com.tw.todolist.Services.JdHelper;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,7 +22,7 @@ public class IndexServlet extends HttpServlet{
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         toDoList.clear();
         System.out.println("succeed enter get index");
-        JdbcService jd = new JdbcService();
+        JdHelper jd = new JdHelper();
         ResultSet resultSet = null;
 
         try {
