@@ -14,7 +14,7 @@ public class UserToDoListServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI();
         String name = url.substring(18);
-        request.setAttribute("name",name);
-        request.getRequestDispatcher("test.jsp").forward(request,response);
+        System.out.println(name);
+        request.getRequestDispatcher("/usertodolist.jsp").forward(request,response);
     }
 }

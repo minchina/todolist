@@ -23,6 +23,6 @@ public class IndexServlet extends HttpServlet {
             e.printStackTrace();
         }
         request.setAttribute("toDoList", toDoList);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }

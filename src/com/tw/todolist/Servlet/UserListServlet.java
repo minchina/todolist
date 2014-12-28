@@ -23,7 +23,7 @@ public class UserListServlet extends HttpServlet {
             e.printStackTrace();
         }
         request.setAttribute("userList", userList);
-        request.getRequestDispatcher("userlist.jsp").forward(request,response);
+        request.getRequestDispatcher("/userlist.jsp").forward(request,response);
     }
 
     @Override

@@ -27,7 +27,7 @@
   <c:forEach items="<%= userList %>" var="User">
     <li data-id="${User.id}"}>
       <div class="view">
-        <a href="${User.name}">${User.name}</a>
+        <a href="user/${User.name}">${User.name}</a>
           <%--<button type="button" class="btn btn-success">${User.name}</button>--%>
         <button class="destroy"></button>
       </div>
