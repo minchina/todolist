@@ -18,6 +18,11 @@ public class JdService extends Jd{
     public void add(String value) throws SQLException, ClassNotFoundException {
         String sqlString = "INSERT INTO list(name, done) VALUE ('" + value + "','" + 0 + "')";
         statement.executeUpdate(sqlString);
+        ResultSet rs = statement.getGeneratedKeys();
+        if (rs.next()) {
+            Long id = rs.getLong(1);
+            System.out.println("数据主键：" + id);
+        }
     }
 
     public ResultSet getAll() throws SQLException, ClassNotFoundException {

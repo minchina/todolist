@@ -6,7 +6,8 @@
 
 <html>
 <head>
-  <title>TODO</title>
+  <title>TODO主页</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="./bower_components/todomvc-common/base.css">
 </head>
 <body>
@@ -37,6 +38,7 @@
     </c:forEach>
 
   </ul>
+  <a href="user" class="btn btn-primary btn-lg" role="button">Primary link</a>
 </section>
 
 <script  src="./bower_components/jquery/dist/jquery.js"  ></script>

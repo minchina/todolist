@@ -1,3 +1,4 @@
-/**
- * Created by minchina on 14-12-28.
- */
+$(document).ready(function(){
+
+   console.log(123);
+});
