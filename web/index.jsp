@@ -38,9 +38,8 @@
     </c:forEach>
 
   </ul>
-  <a href="user" class="btn btn-primary btn-lg" role="button">Primary link</a>
 </section>
-
+<a href="user" class="btn btn-primary btn-lg" role="button">用户列表</a>
 <script  src="./bower_components/jquery/dist/jquery.js"  ></script>
 <script  src="./js/main.js"></script>
 

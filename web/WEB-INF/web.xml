@@ -20,8 +20,10 @@
     <!--</filter>-->
     <!--<filter-mapping>-->
         <!--<filter-name>HelloFilter</filter-name>-->
-        <!--<url-pattern>/*</url-pattern>-->
+        <!--<url-pattern>/user/*</url-pattern>-->
     <!--</filter-mapping>-->
+
+
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>com.tw.todolist.Servlet.IndexServlet</servlet-class>
@@ -62,12 +64,24 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>UserServlet</servlet-name>
+        <servlet-name>UserToDoListServlet</servlet-name>
+        <servlet-class>com.tw.todolist.Servlet.UserToDoListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserToDoListServlet</servlet-name>
+        <url-pattern>/user/*</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UserListServlet</servlet-name>
         <servlet-class>com.tw.todolist.Servlet.UserListServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>UserServlet</servlet-name>
+        <servlet-name>UserListServlet</servlet-name>
         <url-pattern>/user</url-pattern>
     </servlet-mapping>
+
 </web-app>

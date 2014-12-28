@@ -1,8 +1,6 @@
 package com.tw.todolist.Servlet;
 
-import com.tw.todolist.Dao.UserDao;
 import com.tw.todolist.Models.User;
-import com.tw.todolist.Services.ToDoService;
 import com.tw.todolist.Services.UserService;
 
 import javax.servlet.ServletException;
@@ -18,6 +16,7 @@ public class UserListServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("1");
         try {
             userList = new UserService().getAll();
         } catch (Exception e) {

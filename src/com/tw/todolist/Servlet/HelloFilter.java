@@ -20,6 +20,7 @@ public class HelloFilter implements Filter {
         System.out.println();
         System.out.println("拦截 URI="+req.getRequestURI());
         filterChain.doFilter(req, response);
+        request.getRequestDispatcher("usertodolist.jsp").forward(request, response);
     }
     @Override
     public void destroy(){

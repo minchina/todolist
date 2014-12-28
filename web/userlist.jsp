@@ -6,7 +6,7 @@
 <head>
 
   <link rel="stylesheet" type="text/css" href="./bower_components/todomvc-common/base.css">
-
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <title>用户列表</title>
 </head>
 <body>
@@ -27,10 +27,10 @@
   <c:forEach items="<%= userList %>" var="User">
     <li data-id="${User.id}"}>
       <div class="view">
-        <label>${User.name}</label>
+        <a href="${User.name}">${User.name}</a>
+          <%--<button type="button" class="btn btn-success">${User.name}</button>--%>
         <button class="destroy"></button>
       </div>
-      <input class="edit" value="${User.name}">
     </li>
   </c:forEach>
 

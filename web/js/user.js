@@ -18,6 +18,19 @@ $(document).ready(function(){
       }
    });
 
+   $("label").on("click",function(){
+      console.log("haha");
+      var name = "mao";
+      $.ajax({
+         url:"/todolist_v1/user/"+name,
+         data:{},
+         type:"GET",
+         success:function(user_id){
+            console.log("heh");
+         }
+      })
+   });
+
 
    function concatString(user_name,user_id){
       var expectString =
