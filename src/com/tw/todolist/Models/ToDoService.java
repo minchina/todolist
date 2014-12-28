@@ -10,7 +10,11 @@ import java.util.List;
 
 public class ToDoService {
     private List<ToDo> toDoList = new ArrayList<ToDo>();
-    JdService jdService = new JdService();
+    JdService jdService;
+
+    public ToDoService() throws SQLException {
+        jdService = new JdService();
+    }
 
     public void add(String name) throws SQLException, ClassNotFoundException {
         jdService.add(name);

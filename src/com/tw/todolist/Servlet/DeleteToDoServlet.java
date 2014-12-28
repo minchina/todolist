@@ -15,7 +15,6 @@ public class DeleteToDoServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         Integer id = Integer.valueOf(request.getParameter("id"));
-        System.out.println(id);
         try {
             new JdService().remove(id);
         } catch (Exception e) {

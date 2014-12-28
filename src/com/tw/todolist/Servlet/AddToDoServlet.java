@@ -7,12 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
-/**
- * Created by minchina on 14-12-26.
- */
+
 public class AddToDoServlet extends HttpServlet {
-    ToDoService toDoList = new ToDoService();
+    ToDoService toDoList;
+
+    public AddToDoServlet() throws SQLException {
+        toDoList = new ToDoService();
+    }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
