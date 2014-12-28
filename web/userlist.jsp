@@ -1,3 +1,6 @@
+<%@ page import="com.tw.todolist.Models.User" %>
+<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,14 +19,21 @@
 </header>
 
 <ul id="todo-list">
-    <li data-id="1" >
+
+  <%
+    List<User> userList = (List<User>)request.getAttribute("userList");
+  %>
+
+  <c:forEach items="<%= userList %>" var="User">
+    <li data-id="${User.id}"}>
       <div class="view">
-        <%--<input class="toggle" type="checkbox" >--%>
-        <label>zhangsan</label>
+        <label>${User.name}</label>
         <button class="destroy"></button>
       </div>
-      <input class="edit" value="123">
+      <input class="edit" value="${User.name}">
     </li>
+  </c:forEach>
+
 </ul>
 
 

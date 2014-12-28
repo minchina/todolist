@@ -7,6 +7,12 @@ public class User {
     private String name;
     private Integer id;
 
+    public User(int id, String name) {
+        this.id=id;
+        this.name = name;
+
+    }
+
     public Integer getId() {
         return id;
     }

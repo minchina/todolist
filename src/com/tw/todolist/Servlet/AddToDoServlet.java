@@ -1,6 +1,6 @@
 package com.tw.todolist.Servlet;
 
-import com.tw.todolist.Models.ToDoService;
+import com.tw.todolist.Services.ToDoService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

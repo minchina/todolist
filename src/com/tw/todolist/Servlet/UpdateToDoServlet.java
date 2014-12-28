@@ -1,6 +1,6 @@
 package com.tw.todolist.Servlet;
 
-import com.tw.todolist.Services.JdService;
+import com.tw.todolist.Dao.JdDao;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +18,7 @@ public class UpdateToDoServlet extends HttpServlet {
         String name = request.getParameter("name");
         Integer status = Integer.valueOf(request.getParameter("status"));
         try {
-            new JdService().update(id, name, status);
+            new JdDao().update(id, name, status);
         } catch (SQLException e) {
             e.printStackTrace();
         }

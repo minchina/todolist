@@ -1,6 +1,7 @@
-package com.tw.todolist.Models;
+package com.tw.todolist.Services;
 
-import com.tw.todolist.Services.JdService;
+import com.tw.todolist.Dao.JdDao;
+import com.tw.todolist.Models.ToDo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,18 +11,18 @@ import java.util.List;
 
 public class ToDoService {
     private List<ToDo> toDoList = new ArrayList<ToDo>();
-    JdService jdService;
+    JdDao jdDao;
 
     public ToDoService() throws SQLException {
-        jdService = new JdService();
+        jdDao = new JdDao();
     }
 
     public void add(String name) throws SQLException, ClassNotFoundException {
-        jdService.add(name);
+        jdDao.add(name);
     }
 
     public List<ToDo> getAll() throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = jdService.getAll();
+        ResultSet resultSet = jdDao.getAll();
         while (resultSet.next()) {
             toDoList.add(new ToDo(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3)));
         }
@@ -29,10 +30,10 @@ public class ToDoService {
     }
 
     public void delete(Integer id) throws SQLException, ClassNotFoundException {
-        jdService.remove(id);
+        jdDao.remove(id);
     }
 
     public void update(Integer id, String name, Integer status) throws SQLException {
-        jdService.update(id, name, status);
+        jdDao.update(id, name, status);
     }
 }

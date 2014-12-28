@@ -1,12 +1,12 @@
-package com.tw.todolist.Services;
+package com.tw.todolist.Dao;
 
 
 import java.sql.*;
 
-public class JdService extends Jd{
+public class JdDao extends Jd{
 
 
-    public JdService() throws SQLException {
+    public JdDao() throws SQLException {
     }
 
     public void update(int data_id, String name, int status) throws SQLException {
