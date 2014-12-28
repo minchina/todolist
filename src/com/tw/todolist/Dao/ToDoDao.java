@@ -3,10 +3,10 @@ package com.tw.todolist.Dao;
 
 import java.sql.*;
 
-public class JdDao extends Jd{
+public class ToDoDao extends Jd{
 
 
-    public JdDao() throws SQLException {
+    public ToDoDao() throws SQLException {
     }
 
     public void update(int data_id, String name, int status) throws SQLException {
