@@ -60,7 +60,7 @@
 
     <servlet-mapping>
         <servlet-name>UserToDoListServlet</servlet-name>
-        <url-pattern>/user/*/todos</url-pattern>
+        <url-pattern>/user/*</url-pattern>
     </servlet-mapping>
 
 
