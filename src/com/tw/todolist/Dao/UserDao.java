@@ -2,18 +2,19 @@ package com.tw.todolist.Dao;
 
 
 
+import com.tw.todolist.Models.User;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by minchina on 14-12-28.
- */
+
 public class UserDao extends Dao {
 
     public UserDao() throws SQLException {
     }
 
-    public Integer add(String userName) throws SQLException, ClassNotFoundException {
+    public User add(User user) throws SQLException, ClassNotFoundException {
+        String userName = user.getName();
         Integer id = 0;
         String sqlString = "INSERT INTO user(name) VALUE ('" + userName + "')";
         statement.executeUpdate(sqlString);
@@ -21,7 +22,8 @@ public class UserDao extends Dao {
         if (rs.next()) {
             id = rs.getInt(1);
         }
-        return id;
+        user.setId(id);
+        return user;
     }
 
     public ResultSet getAll() throws SQLException, ClassNotFoundException {

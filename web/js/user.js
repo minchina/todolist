@@ -9,9 +9,9 @@ $(document).ready(function(){
             url:"/todolist_v1/user",
             data:{user_name:user_name},
             type:"POST",
-            success:function(user_id){
+            success:function(user){
                var $user_list = $("#todo-list");
-               $user_list.append(concatString(user_name,user_id));
+               $user_list.append(concatString(user.name,user.id));
                $name_input.val("");
             }
          })

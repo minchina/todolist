@@ -22,8 +22,8 @@ public class UserService {
         userDao = new UserDao();
     }
 
-    public Integer add(String name) throws SQLException, ClassNotFoundException {
-        return userDao.add(name);
+    public User add(User user) throws SQLException, ClassNotFoundException {
+        return userDao.add(user);
     }
 
     public List<User> getAll() throws Exception {

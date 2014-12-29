@@ -27,15 +27,15 @@ public class UserListServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request,HttpServletResponse response){
-        Integer userId = 0;
+        User user = null;
         String userName = request.getParameter("user_name");
+        Integer userId = 0;
         try {
-            UserService userService = new UserService();
-            userId = userService.add(userName);
+            user = new UserService().add(new User(userId, userName));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        request.setAttribute("user_id", userId);
+        request.setAttribute("user", user);
     }
 
 }
