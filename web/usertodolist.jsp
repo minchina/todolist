@@ -20,13 +20,13 @@
 </header>
 
 <section id="main" style="display: block;">
-    <input id="toggle-all" type="checkbox">
-    <label for="toggle-all">Mark all as complete</label>
+    <%--<input id="toggle-all" type="checkbox">--%>
+    <%--<label for="toggle-all">Mark all as complete</label>--%>
     <ul id="todo-list">
 
             <li data-id="1" >
                 <div class="view">
-                    <input class="toggle" type="checkbox" >
+                    <%--<input class="toggle" type="checkbox" >--%>
                     <label>123</label>
                     <button class="destroy"></button>
                 </div>
