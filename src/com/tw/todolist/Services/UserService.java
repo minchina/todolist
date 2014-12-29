@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class UserService {
 
-    private List<User> userList = new ArrayList<User>();
+
 
     UserDao userDao;
 
@@ -27,10 +27,6 @@ public class UserService {
     }
 
     public List<User> getAll() throws Exception {
-        ResultSet resultSet = userDao.getAll();
-        while (resultSet.next()) {
-            userList.add(new User(resultSet.getInt(1),resultSet.getString(2)));
-        }
-        return userList;
+        return userDao.getAll();
     }
 }

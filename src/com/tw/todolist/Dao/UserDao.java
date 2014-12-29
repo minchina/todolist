@@ -6,6 +6,8 @@ import com.tw.todolist.Models.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserDao extends Dao {
@@ -26,8 +28,13 @@ public class UserDao extends Dao {
         return user;
     }
 
-    public ResultSet getAll() throws SQLException, ClassNotFoundException {
-        return statement.executeQuery("select * from user");
+    public List<User> getAll() throws SQLException, ClassNotFoundException {
+        List<User> userList = new ArrayList<User>();
+        ResultSet resultSet =  statement.executeQuery("select * from user");
+        while (resultSet.next()) {
+            userList.add(new User(resultSet.getInt(1),resultSet.getString(2)));
+        }
+        return userList;
     }
 
 
