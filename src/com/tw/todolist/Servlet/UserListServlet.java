@@ -15,8 +15,7 @@ public class UserListServlet extends HttpServlet {
     private List<User> userList;
 
     @Override
-    public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("1");
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             userList = new UserService().getAll();
         } catch (Exception e) {

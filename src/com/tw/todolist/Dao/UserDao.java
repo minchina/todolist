@@ -25,8 +25,7 @@ public class UserDao extends Jd {
     }
 
     public ResultSet getAll() throws SQLException, ClassNotFoundException {
-        String sql = "select * from user";
-        return statement.executeQuery(sql);
+        return statement.executeQuery("select * from user");
     }
 
 

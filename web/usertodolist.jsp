@@ -4,9 +4,13 @@
 
 <html>
 <head>
+    <%
+        String basePath = request.getContextPath();
+
+    %>
     <title>TODO主页</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="./bower_components/todomvc-common/base.css">
+    <link rel="stylesheet" href="<%=basePath%>/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>/bower_components/todomvc-common/base.css">
 </head>
 <body>
 
@@ -31,6 +35,5 @@
 
     </ul>
 </section>
-<a href="user" class="btn btn-primary btn-lg" role="button">用户列表</a>
 </body>
 </html>

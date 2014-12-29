@@ -26,7 +26,7 @@ public class UserService {
         return userDao.add(name);
     }
 
-    public List<User> getAll() throws SQLException, ClassNotFoundException {
+    public List<User> getAll() throws Exception {
         ResultSet resultSet = userDao.getAll();
         while (resultSet.next()) {
             userList.add(new User(resultSet.getInt(1),resultSet.getString(2)));
