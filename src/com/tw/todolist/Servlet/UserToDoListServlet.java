@@ -15,6 +15,7 @@ public class UserToDoListServlet extends HttpServlet {
         String url = request.getRequestURI();
         String name = url.substring(18);
         System.out.println(name);
+        //The pathname must begin with a "/" and is interpreted as relative to the current context root.
         request.getRequestDispatcher("/usertodolist.jsp").forward(request,response);
     }
 }

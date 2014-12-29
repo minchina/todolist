@@ -8,7 +8,7 @@ import java.sql.SQLException;
 /**
  * Created by minchina on 14-12-28.
  */
-public class UserDao extends Jd {
+public class UserDao extends Dao {
 
     public UserDao() throws SQLException {
     }

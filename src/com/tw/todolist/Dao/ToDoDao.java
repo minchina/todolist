@@ -3,7 +3,7 @@ package com.tw.todolist.Dao;
 
 import java.sql.*;
 
-public class ToDoDao extends Jd{
+public class ToDoDao extends Dao {
 
 
     public ToDoDao() throws SQLException {
