@@ -4,12 +4,12 @@ $(document).ready(function(){
    $name_input.keydown(function(e){
       if(e.keyCode==13){
          var user_name = $name_input.val();
-         console.log(user_name);
          $.ajax({
             url:"/todolist_v1/user",
             data:{user_name:user_name},
             type:"POST",
-            success:function(user){
+            success:function(json_user){
+               var user = JSON.parse(json_user);
                var $user_list = $("#todo-list");
                $user_list.append(concatString(user.name,user.id));
                $name_input.val("");
@@ -17,20 +17,6 @@ $(document).ready(function(){
          })
       }
    });
-
-   $("label").on("click",function(){
-      console.log("haha");
-      var name = "mao";
-      $.ajax({
-         url:"/todolist_v1/user/"+name,
-         data:{},
-         type:"GET",
-         success:function(user_id){
-            console.log("heh");
-         }
-      })
-   });
-
 
    function concatString(user_name,user_id){
       var expectString =

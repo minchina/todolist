@@ -1,5 +1,6 @@
 package com.tw.todolist.Servlet;
 
+import com.alibaba.fastjson.JSON;
 import com.tw.todolist.Models.User;
 import com.tw.todolist.Services.UserService;
 
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 
@@ -26,16 +28,19 @@ public class UserListServlet extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest request,HttpServletResponse response){
+    public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
         User user = null;
         String userName = request.getParameter("user_name");
+
+        PrintWriter printWriter = response.getWriter();
         Integer userId = 0;
         try {
             user = new UserService().add(new User(userId, userName));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        request.setAttribute("user", user);
+        String jsonUser = JSON.toJSONString(user);
+        printWriter.print(jsonUser);
     }
 
 }
