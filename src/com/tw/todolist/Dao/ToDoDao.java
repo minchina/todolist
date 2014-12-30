@@ -2,6 +2,7 @@ package com.tw.todolist.Dao;
 
 
 import com.tw.todolist.Models.ToDo;
+import com.tw.todolist.Models.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,10 +20,12 @@ public class ToDoDao extends Dao {
         close();
     }
 
-    public ToDo add(ToDo toDo) throws SQLException, ClassNotFoundException {
+    public ToDo add(ToDo toDo,User user) throws SQLException, ClassNotFoundException {
         String name = toDo.getName();
         int done = toDo.getDone();
-        String sqlString = "INSERT INTO list(name, done) VALUE ('" + name + "','" + done + "')";
+        Integer userId = user.getId();
+        String sqlString = "INSERT INTO list(name, done, userid) VALUE ('" + name + "'," + done + "," + userId +")";
+        System.out.println(sqlString);
         statement.executeUpdate(sqlString);
 
         int id = 0;
@@ -50,7 +53,7 @@ public class ToDoDao extends Dao {
         String sqlString = "select * from list where userid = " + userId;
         ResultSet resultSet = statement.executeQuery(sqlString);
         while (resultSet.next()){
-            toDoList.add(new ToDo(resultSet.getInt(1),resultSet.getString(2),resultSet.getInt(3),resultSet.getInt(4)));
+            toDoList.add(new ToDo(resultSet.getInt(1),resultSet.getString(2),resultSet.getInt(4),resultSet.getInt(3)));
         }
         return toDoList;
 

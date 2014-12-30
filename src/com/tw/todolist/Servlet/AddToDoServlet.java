@@ -24,10 +24,11 @@ public class AddToDoServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         String name = request.getParameter("name");
+        Integer userId = Integer.valueOf(request.getParameter("user_id"));
         ToDo toDo = new ToDo(0,name,0,0);
 
         try {
-            toDo = toDoList.add(toDo);
+            toDo = toDoList.add(toDo,userId);
         } catch (Exception e) {
             e.printStackTrace();
         }

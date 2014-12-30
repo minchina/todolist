@@ -17,11 +17,12 @@
     <input id="new-todo" placeholder="请输入一个新用户" autofocus="">
 </header>
 
-<ul id="todo-list">
 
-    <%
-        List<User> userList = (List<User>) request.getAttribute("userList");
-    %>
+<%
+    List<User> userList = (List<User>) request.getAttribute("userList");
+%>
+
+<ul id="todo-list">
 
     <c:forEach items="<%= userList %>" var="User">
 

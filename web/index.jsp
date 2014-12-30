@@ -14,7 +14,6 @@
 
 <header id="header">
   <h1>todos</h1>
-  <input id="new-todo" placeholder="What needs to be done?" autofocus="">
 </header>
 
 <section id="main" style="display: block;">
@@ -28,8 +27,9 @@
 
     <c:forEach items="<%= toDoItems %>" var="toDo">
       <li data-id="${toDo.id}" ${toDo.done==1? "class='completed'":""}>
+        <input class="hidden" value="${toDo.done}">
         <div class="view">
-          <input class="toggle" type="checkbox" ${toDo.done==1?"checked":""}>
+          <%--<input class="toggle" type="checkbox" ${toDo.done==1?"checked":""}>--%>
           <label>${toDo.name}</label>
           <button class="destroy"></button>
         </div>
@@ -41,7 +41,6 @@
 </section>
 <a href="user" class="btn btn-primary btn-lg" role="button">用户列表</a>
 <script  src="./bower_components/jquery/dist/jquery.js"  ></script>
-<script  src="./js/main.js"></script>
 
 </body>
 </html>

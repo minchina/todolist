@@ -32,4 +32,8 @@ public class UserService {
     public User findUserByName(String name) throws SQLException {
         return userDao.findUserByName(name);
     }
+
+    public User findUserById(Integer id) throws SQLException {
+        return userDao.findUserById(id);
+    }
 }

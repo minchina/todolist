@@ -21,11 +21,11 @@ $(document).ready(function(){
    function concatString(user_name,user_id){
       var expectString =
           "<li data-id="+user_id+">"+
-          "<div class='view'>"+
-          "<label>"+ user_name +"</label>"+
-          "<button class='destroy'></button>"+
-          "</div>"+
-          "<input class='edit' value='123'>"+
+            "<div class='view'>"+
+                "<a href='user/"+user_name+"/todos>"+user_name+"</a>"+
+                "<button class='destroy'></button>"+
+            "</div>"+
+            //"<input class='edit' value='123'>"+
           "</li>";
       return expectString;
    }

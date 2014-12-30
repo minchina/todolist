@@ -51,4 +51,14 @@ public class UserDao extends Dao {
     }
 
 
+    public User findUserById(Integer id) throws SQLException {
+
+        User user = null;
+        String sqlString = "SELECT * from user where id = " + id;
+        ResultSet resultSet = statement.executeQuery(sqlString);
+        while (resultSet.next()) {
+            user = new User(resultSet.getInt(1), resultSet.getString(2));
+        }
+        return user;
+    }
 }

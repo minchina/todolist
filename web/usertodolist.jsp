@@ -9,6 +9,7 @@
     <%
         String basePath = request.getContextPath();
         List<ToDo> userToDoList = (List<ToDo>) request.getAttribute("usertodolist");
+        Integer userId = (Integer) request.getAttribute("user_id");
     %>
     <title>TODO主页</title>
     <link rel="stylesheet" href="<%=basePath%>/bower_components/bootstrap/dist/css/bootstrap.css"/>
@@ -19,12 +20,14 @@
 <header id="header">
     <h1>todos</h1>
     <input id="new-todo" placeholder="What needs to be done?" autofocus="">
+    <input id="user_id" hidden="hidden" value="<%= userId %>">
 </header>
 
 <section id="main" style="display: block;">
     <ul id="todo-list">
         <c:forEach items="<%= userToDoList %>" var="toDo">
             <li data-id="${toDo.id}" ${toDo.done==1? "class='completed'":""}>
+                <input class="hidden" value="${toDo.done}">
                 <div class="view">
                     <input class="toggle" type="checkbox" ${toDo.done==1?"checked":""}>
                     <label>${toDo.name}</label>
@@ -33,8 +36,10 @@
                 <input class="edit" value="${toDo.name}">
             </li>
         </c:forEach>
-
     </ul>
 </section>
+<script  src="<%=basePath%>/bower_components/jquery/dist/jquery.js"  ></script>
+<script  src="<%=basePath%>/js/todolist.js"></script>
+
 </body>
 </html>

@@ -1,11 +1,12 @@
 $(window).ready(function(){
     var THIS = $('#new-todo');
-        THIS.keydown(function(e){
+    THIS.keydown(function(e){
         if(e.keyCode==13){
             var name = THIS.val();
+            var user_id = $("#user_id").val();
             $.ajax({
                 url:"/todolist_v1/add",
-                data:{name:name},
+                data:{name:name,user_id:user_id},
                 type:"POST",
                 success:function(json_todo){
                     var todo = JSON.parse(json_todo);
@@ -56,20 +57,20 @@ $(window).ready(function(){
             data:{id:data_id,name:name,status:is_checked($check_box)},
             type:"POST",
             success:function(){
-                    $label.text(name);
-                    $li.removeClass("editing");
+                $label.text(name);
+                $li.removeClass("editing");
             }
         });
     });
     function concatString(id,name){
         var expectString =
             "<li data-id="+id+">"+
-                "<div class='view'>"+
-                    "<input class='toggle' type='checkbox'>"+
-                    "<label>"+ name +"</label>"+
-                    "<button class='destroy'></button>"+
-                "</div>"+
-                "<input class='edit' value='123'>"+
+            "<div class='view'>"+
+            "<input class='toggle' type='checkbox'>"+
+            "<label>"+ name +"</label>"+
+            "<button class='destroy'></button>"+
+            "</div>"+
+            "<input class='edit' value='123'>"+
             "</li>";
         return expectString;
     }
@@ -96,4 +97,3 @@ $(window).ready(function(){
 
     }
 });
-

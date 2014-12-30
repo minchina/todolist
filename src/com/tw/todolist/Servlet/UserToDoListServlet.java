@@ -33,6 +33,8 @@ public class UserToDoListServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        assert user != null;
+        request.setAttribute("user_id",user.getId());
         request.setAttribute("usertodolist",userToDoList);
         //The pathname must begin with a "/" and is interpreted as relative to the current context root.
         request.getRequestDispatcher("/usertodolist.jsp").forward(request, response);
