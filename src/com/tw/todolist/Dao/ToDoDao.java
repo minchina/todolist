@@ -26,7 +26,7 @@ public class ToDoDao extends Dao {
         int id = 0;
         ResultSet rs = statement.getGeneratedKeys();
         if (rs.next()) {
-            id =rs.getInt(1);
+            id = rs.getInt(1);
         }
         toDo.setId(id);
         return toDo;

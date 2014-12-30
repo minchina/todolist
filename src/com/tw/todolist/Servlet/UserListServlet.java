@@ -24,11 +24,11 @@ public class UserListServlet extends HttpServlet {
             e.printStackTrace();
         }
         request.setAttribute("userList", userList);
-        request.getRequestDispatcher("/userlist.jsp").forward(request,response);
+        request.getRequestDispatcher("/userlist.jsp").forward(request, response);
     }
 
     @Override
-    public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = null;
         String userName = request.getParameter("user_name");
         PrintWriter printWriter = response.getWriter();

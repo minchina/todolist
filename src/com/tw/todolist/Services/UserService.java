@@ -15,7 +15,6 @@ import java.util.List;
 public class UserService {
 
 
-
     UserDao userDao;
 
     public UserService() throws SQLException {

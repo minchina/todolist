@@ -1,7 +1,6 @@
 package com.tw.todolist.Dao;
 
 
-
 import com.tw.todolist.Models.User;
 
 import java.sql.ResultSet;
@@ -30,13 +29,12 @@ public class UserDao extends Dao {
 
     public List<User> getAll() throws SQLException, ClassNotFoundException {
         List<User> userList = new ArrayList<User>();
-        ResultSet resultSet =  statement.executeQuery("select * from user");
+        ResultSet resultSet = statement.executeQuery("select * from user");
         while (resultSet.next()) {
-            userList.add(new User(resultSet.getInt(1),resultSet.getString(2)));
+            userList.add(new User(resultSet.getInt(1), resultSet.getString(2)));
         }
         return userList;
     }
-
 
 
 }

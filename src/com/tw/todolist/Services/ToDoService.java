@@ -24,7 +24,7 @@ public class ToDoService {
     public List<ToDo> getAll() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = toDoDao.getAll();
         while (resultSet.next()) {
-            toDoList.add(new ToDo(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3),resultSet.getInt(4)));
+            toDoList.add(new ToDo(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3), resultSet.getInt(4)));
         }
         return toDoList;
     }
