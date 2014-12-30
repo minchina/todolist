@@ -19,12 +19,7 @@ public class UserDao extends Dao {
         Integer id = 0;
         String sqlString = "INSERT INTO user(name) VALUE ('" + userName + "')";
         statement.executeUpdate(sqlString);
-        ResultSet rs = statement.getGeneratedKeys();
-        if (rs.next()) {
-            id = rs.getInt(1);
-        }
-        user.setId(id);
-        return user;
+        return getLastUser();
     }
 
     public List<User> getAll() throws SQLException, ClassNotFoundException {
@@ -34,6 +29,16 @@ public class UserDao extends Dao {
             userList.add(new User(resultSet.getInt(1), resultSet.getString(2)));
         }
         return userList;
+    }
+
+    public  User getLastUser() throws SQLException {
+        User user = null;
+        String sqlString = "SELECT * from user where id = (SELECT max(id) FROM user)";
+        ResultSet resultSet =statement.executeQuery(sqlString);
+        while (resultSet.next()){
+            user = new User(resultSet.getInt(1),resultSet.getString(2));
+        }
+        return user;
     }
 
 
