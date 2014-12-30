@@ -61,4 +61,12 @@ public class UserDao extends Dao {
         }
         return user;
     }
+
+    public void delete(User user) throws SQLException {
+        Integer userId = user.getId();
+        String sqlString = "delete from user where id=" + userId;
+        statement.execute(sqlString);
+        close();
+
+    }
 }

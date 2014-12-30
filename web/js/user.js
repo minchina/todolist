@@ -18,16 +18,27 @@ $(document).ready(function(){
       }
    });
 
+    $(".destroy").on("click",function(){
+        var $li = $(this).closest("li");
+        var user_id = $li.data("id");
+        var user_name = $li.find("a").text();
+        $.ajax({
+            url:"/todolist_v1/user",
+            data:{user_id:user_id,user_name:user_name},
+            type:"DELETE",
+            success:function(json_user){
+            }
+        })
+    });
+
    function concatString(user_name,user_id){
       var expectString =
-          "<li data-id="+user_id+">"+
+        "<li data-id="+user_id+"}>"+
             "<div class='view'>"+
-                "<a href='user/"+user_name+"/todos>"+user_name+"</a>"+
-                "<button class='destroy'></button>"+
+            "<a href='user/"+user_name+"/todos'>"+user_name+"</a>"+
+            '<button class="destroy"></button>'+
             "</div>"+
-            //"<input class='edit' value='123'>"+
-          "</li>";
+        "</li>";
       return expectString;
    }
-
 });

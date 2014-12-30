@@ -9,9 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by minchina on 14-12-28.
- */
 public class UserService {
 
 
@@ -35,5 +32,9 @@ public class UserService {
 
     public User findUserById(Integer id) throws SQLException {
         return userDao.findUserById(id);
+    }
+
+    public void delete(User user) throws SQLException {
+        userDao.delete(user);
     }
 }

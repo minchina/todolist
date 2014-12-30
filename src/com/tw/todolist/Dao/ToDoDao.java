@@ -25,7 +25,6 @@ public class ToDoDao extends Dao {
         int done = toDo.getDone();
         Integer userId = user.getId();
         String sqlString = "INSERT INTO list(name, done, userid) VALUE ('" + name + "'," + done + "," + userId +")";
-        System.out.println(sqlString);
         statement.executeUpdate(sqlString);
 
         int id = 0;

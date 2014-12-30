@@ -22,20 +22,18 @@
     List<User> userList = (List<User>) request.getAttribute("userList");
 %>
 
-<ul id="todo-list">
-
-    <c:forEach items="<%= userList %>" var="User">
-
-        <li data-id="${User.id}" }>
-            <div class="view">
-                <a href="user/${User.name}/todos">${User.name}</a>
-                    <%--<button type="button" class="btn btn-success">${User.name}</button>--%>
-                <button class="destroy"></button>
-            </div>
-        </li>
-    </c:forEach>
-
-</ul>
+<section id="main" style="display: block;">
+    <ul id="todo-list">
+        <c:forEach items="<%= userList %>" var="User">
+            <li data-id="${User.id}" }>
+                <div class="view">
+                    <a href="user/${User.name}/todos">${User.name}</a>
+                    <button class="destroy"></button>
+                </div>
+            </li>
+        </c:forEach>
+    </ul>
+</section>
 
 
 <script src="./bower_components/jquery/dist/jquery.js"></script>
