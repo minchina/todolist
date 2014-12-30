@@ -1,5 +1,8 @@
 package com.tw.todolist.Servlet;
 
+import com.alibaba.fastjson.JSON;
+import com.tw.todolist.Models.ToDo;
+import com.tw.todolist.Models.User;
 import com.tw.todolist.Services.ToDoService;
 
 import javax.servlet.http.HttpServlet;
@@ -21,12 +24,14 @@ public class AddToDoServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         String name = request.getParameter("name");
+        ToDo toDo = new ToDo(0,name,0,0);
+
         try {
-            toDoList.add(name);
+            toDo = toDoList.add(toDo);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        out.print(name);
-
+        String jsonToDo = JSON.toJSONString(toDo);
+        out.print(jsonToDo);
     }
 }

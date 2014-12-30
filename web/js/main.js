@@ -7,9 +7,10 @@ $(window).ready(function(){
                 url:"/todolist_v1/add",
                 data:{name:name},
                 type:"POST",
-                success:function(val){
+                success:function(json_todo){
+                    var todo = JSON.parse(json_todo);
                     var target = $("#todo-list");
-                    target.append(concatString(val));
+                    target.append(concatString(todo.id,todo.name));
                     THIS.val("");
                 }
             })
@@ -60,12 +61,12 @@ $(window).ready(function(){
             }
         });
     });
-    function concatString(val){
+    function concatString(id,name){
         var expectString =
-            "<li data-id="+"12"+">"+
+            "<li data-id="+id+">"+
                 "<div class='view'>"+
                     "<input class='toggle' type='checkbox'>"+
-                    "<label>"+ val +"</label>"+
+                    "<label>"+ name +"</label>"+
                     "<button class='destroy'></button>"+
                 "</div>"+
                 "<input class='edit' value='123'>"+

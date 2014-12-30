@@ -1,17 +1,16 @@
 package com.tw.todolist.Models;
 
-/**
- * Created by minchina on 14-12-25.
- */
 public class ToDo {
     private int id;
     private String name;
     private int done;
+    private int userId;
 
-    public ToDo(int id, String name, int done) {
+    public ToDo(int id, String name, int userId,int done) {
         this.id = id;
         this.name = name;
         this.done = done;
+        this.userId = userId;
     }
 
     public int getDone() {
@@ -24,6 +23,14 @@ public class ToDo {
 
     public int getId() {
         return id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public void setId(int id) {

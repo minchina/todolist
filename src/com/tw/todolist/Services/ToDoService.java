@@ -17,14 +17,14 @@ public class ToDoService {
         toDoDao = new ToDoDao();
     }
 
-    public void add(String name) throws SQLException, ClassNotFoundException {
-        toDoDao.add(name);
+    public ToDo add(ToDo toDo) throws SQLException, ClassNotFoundException {
+        return toDoDao.add(toDo);
     }
 
     public List<ToDo> getAll() throws SQLException, ClassNotFoundException {
         ResultSet resultSet = toDoDao.getAll();
         while (resultSet.next()) {
-            toDoList.add(new ToDo(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3)));
+            toDoList.add(new ToDo(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3),resultSet.getInt(4)));
         }
         return toDoList;
     }

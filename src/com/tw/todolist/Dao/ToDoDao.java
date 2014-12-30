@@ -1,6 +1,8 @@
 package com.tw.todolist.Dao;
 
 
+import com.tw.todolist.Models.ToDo;
+
 import java.sql.*;
 
 public class ToDoDao extends Dao {
@@ -15,14 +17,19 @@ public class ToDoDao extends Dao {
         close();
     }
 
-    public void add(String value) throws SQLException, ClassNotFoundException {
-        String sqlString = "INSERT INTO list(name, done) VALUE ('" + value + "','" + 0 + "')";
+    public ToDo add(ToDo toDo) throws SQLException, ClassNotFoundException {
+        String name = toDo.getName();
+        int done = toDo.getDone();
+        String sqlString = "INSERT INTO list(name, done) VALUE ('" + name + "','" + done + "')";
         statement.executeUpdate(sqlString);
+
+        int id = 0;
         ResultSet rs = statement.getGeneratedKeys();
         if (rs.next()) {
-            Long id = rs.getLong(1);
-            System.out.println("数据主键：" + id);
+            id =rs.getInt(1);
         }
+        toDo.setId(id);
+        return toDo;
     }
 
     public ResultSet getAll() throws SQLException, ClassNotFoundException {

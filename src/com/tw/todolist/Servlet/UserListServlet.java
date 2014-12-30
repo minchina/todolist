@@ -31,7 +31,6 @@ public class UserListServlet extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
         User user = null;
         String userName = request.getParameter("user_name");
-
         PrintWriter printWriter = response.getWriter();
         Integer userId = 0;
         try {
