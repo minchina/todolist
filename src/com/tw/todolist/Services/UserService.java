@@ -28,4 +28,8 @@ public class UserService {
     public List<User> getAll() throws Exception {
         return userDao.getAll();
     }
+
+    public User findUserByName(String name) throws SQLException {
+        return userDao.findUserByName(name);
+    }
 }

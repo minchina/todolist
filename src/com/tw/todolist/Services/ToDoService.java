@@ -36,4 +36,8 @@ public class ToDoService {
     public void update(Integer id, String name, Integer status) throws SQLException {
         toDoDao.update(id, name, status);
     }
+
+    public List<ToDo> getToDoListByUserId(int userId) throws SQLException {
+        return toDoDao.getToDoListByUserId(userId);
+    }
 }

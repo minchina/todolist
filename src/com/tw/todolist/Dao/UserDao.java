@@ -40,5 +40,15 @@ public class UserDao extends Dao {
         return user;
     }
 
+    public User findUserByName(String name) throws SQLException {
+        User user = null;
+        String sqlString = "SELECT * from user where name = '" + name + "'";
+        ResultSet resultSet = statement.executeQuery(sqlString);
+        while (resultSet.next()) {
+            user = new User(resultSet.getInt(1), resultSet.getString(2));
+        }
+        return user;
+    }
+
 
 }

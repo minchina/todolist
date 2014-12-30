@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.tw.todolist.Models.ToDo" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -6,10 +8,10 @@
 <head>
     <%
         String basePath = request.getContextPath();
-
+        List<ToDo> userToDoList = (List<ToDo>) request.getAttribute("usertodolist");
     %>
     <title>TODO主页</title>
-    <link rel="stylesheet" href="<%=basePath%>/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="<%=basePath%>/bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/bower_components/todomvc-common/base.css">
 </head>
 <body>
@@ -20,18 +22,17 @@
 </header>
 
 <section id="main" style="display: block;">
-    <%--<input id="toggle-all" type="checkbox">--%>
-    <%--<label for="toggle-all">Mark all as complete</label>--%>
     <ul id="todo-list">
-
-            <li data-id="1" >
+        <c:forEach items="<%= userToDoList %>" var="toDo">
+            <li data-id="${toDo.id}" ${toDo.done==1? "class='completed'":""}>
                 <div class="view">
-                    <%--<input class="toggle" type="checkbox" >--%>
-                    <label>123</label>
+                    <input class="toggle" type="checkbox" ${toDo.done==1?"checked":""}>
+                    <label>${toDo.name}</label>
                     <button class="destroy"></button>
                 </div>
-                <input class="edit" value="1">
+                <input class="edit" value="${toDo.name}">
             </li>
+        </c:forEach>
 
     </ul>
 </section>

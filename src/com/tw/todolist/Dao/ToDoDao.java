@@ -4,6 +4,8 @@ package com.tw.todolist.Dao;
 import com.tw.todolist.Models.ToDo;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ToDoDao extends Dao {
 
@@ -41,5 +43,16 @@ public class ToDoDao extends Dao {
         String sqlString = "delete from list where id=" + id;
         statement.execute(sqlString);
         close();
+    }
+
+    public List<ToDo> getToDoListByUserId(int userId) throws SQLException {
+        List<ToDo> toDoList = new ArrayList<ToDo>();
+        String sqlString = "select * from list where userid = " + userId;
+        ResultSet resultSet = statement.executeQuery(sqlString);
+        while (resultSet.next()){
+            toDoList.add(new ToDo(resultSet.getInt(1),resultSet.getString(2),resultSet.getInt(3),resultSet.getInt(4)));
+        }
+        return toDoList;
+
     }
 }
