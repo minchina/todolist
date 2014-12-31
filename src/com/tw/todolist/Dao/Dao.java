@@ -5,9 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Created by minchina on 14-12-26.
- */
 public class Dao {
     protected static final String DRIVER = "com.mysql.jdbc.Driver";
     protected static final String URL = "jdbc:mysql://127.0.0.1:3306/scutcs";
