@@ -14,11 +14,6 @@ import java.sql.SQLException;
 
 
 public class AddToDoServlet extends HttpServlet {
-    ToDoService toDoList;
-
-    public AddToDoServlet() throws SQLException {
-        toDoList = new ToDoService();
-    }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -32,7 +27,7 @@ public class AddToDoServlet extends HttpServlet {
         ToDo toDo = new ToDo(toDoId,name,userId,done);
 
         try {
-            toDo = toDoList.add(toDo,userId);
+            toDo = new ToDoService().add(toDo, userId);
         } catch (Exception e) {
             e.printStackTrace();
         }
