@@ -27,6 +27,7 @@ $(document).ready(function(){
             data:{user_id:user_id,user_name:user_name},
             type:"POST",
             success:function(json_user){
+                $li.remove();
             }
         })
     });
