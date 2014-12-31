@@ -1,6 +1,8 @@
 package com.tw.todolist.Servlet;
 
 import com.tw.todolist.Dao.ToDoDao;
+import com.tw.todolist.Models.ToDo;
+import com.tw.todolist.Services.ToDoService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,8 +17,11 @@ public class UpdateToDoServlet extends HttpServlet {
         Integer id = Integer.valueOf(request.getParameter("id"));
         String name = request.getParameter("name");
         Integer status = Integer.valueOf(request.getParameter("status"));
+
+        ToDo toDo = new ToDo(id,name,0,status);
+
         try {
-            new ToDoDao().update(id, name, status);
+            new ToDoService().update(toDo);
         } catch (SQLException e) {
             e.printStackTrace();
         }

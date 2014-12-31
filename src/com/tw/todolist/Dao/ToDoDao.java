@@ -14,8 +14,11 @@ public class ToDoDao extends Dao {
     public ToDoDao() throws SQLException {
     }
 
-    public void update(int data_id, String name, int status) throws SQLException {
-        String sqlString = "UPDATE list SET done = " + status + ", name = '" + name + "' WHERE id = " + data_id;
+    public void update(ToDo toDo) throws SQLException {
+        Integer id = toDo.getId();
+        String name = toDo.getName();
+        Integer status = toDo.getDone();
+        String sqlString = "UPDATE list SET done = " + status + ", name = '" + name + "' WHERE id = " + id;
         statement.executeUpdate(sqlString);
         close();
     }

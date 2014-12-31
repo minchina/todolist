@@ -16,7 +16,6 @@ public class DeleteUserServlet extends HttpServlet{
 
     @Override
     public void doPost(HttpServletRequest request,HttpServletResponse response){
-        System.out.println("hh");
         Integer userId = Integer.valueOf(request.getParameter("user_id"));
         try {
             new UserService().delete(new User(userId));

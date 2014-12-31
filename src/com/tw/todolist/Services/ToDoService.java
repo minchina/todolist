@@ -35,8 +35,8 @@ public class ToDoService {
         toDoDao.remove(id);
     }
 
-    public void update(Integer id, String name, Integer status) throws SQLException {
-        toDoDao.update(id, name, status);
+    public void update(ToDo toDo) throws SQLException {
+        toDoDao.update(toDo);
     }
 
     public List<ToDo> getToDoListByUserId(int userId) throws SQLException {
