@@ -23,9 +23,13 @@ public class AddToDoServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
+
         String name = request.getParameter("name");
         Integer userId = Integer.valueOf(request.getParameter("user_id"));
-        ToDo toDo = new ToDo(0,name,0,0);
+        Integer toDoId= 0;
+        Integer done = 0;
+
+        ToDo toDo = new ToDo(toDoId,name,userId,done);
 
         try {
             toDo = toDoList.add(toDo,userId);
