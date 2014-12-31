@@ -1,6 +1,6 @@
 package com.tw.todolist.Servlet;
 
-import com.tw.todolist.Dao.ToDoDao;
+import com.tw.todolist.Services.ToDoService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +16,7 @@ public class DeleteToDoServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         Integer id = Integer.valueOf(request.getParameter("id"));
         try {
-            new ToDoDao().remove(id);
+            new ToDoService().delete(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
