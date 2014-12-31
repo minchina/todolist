@@ -40,13 +40,14 @@ public class ToDoDao extends Dao {
     }
 
     public ResultSet getAll() throws SQLException, ClassNotFoundException {
-        String sql = "select * from list";
-        return statement.executeQuery(sql);
+        PreparedStatement allToDos = connection.prepareStatement(" select * from list ");
+        return allToDos.executeQuery();
     }
 
     public void remove(Integer id) throws SQLException, ClassNotFoundException {
-        String sqlString = "delete from list where id=" + id;
-        statement.execute(sqlString);
+        PreparedStatement removeSql = connection.prepareStatement("delete from list where id = ?");
+        removeSql.setInt(1,id);
+        removeSql.execute();
         close();
     }
 
