@@ -22,9 +22,8 @@ public class UserToDoListServlet extends HttpServlet {
         User user = null;
         List<ToDo> userToDoList =new ArrayList<ToDo>();
 
-        String url = request.getRequestURI();
-        int indexOf = url.lastIndexOf("/");
-        String name = url.substring(18, indexOf);
+        String name = getParameterByUrl(request.getRequestURI(), 0);
+
 
         try {
             user = new UserService().findUserByName(name);
@@ -35,8 +34,13 @@ public class UserToDoListServlet extends HttpServlet {
         assert user != null;
         request.setAttribute("user_id",user.getId());
         request.setAttribute("usertodolist",userToDoList);
-        //The pathname must begin with a "/" and is interpreted as relative to the current context root.
         request.getRequestDispatcher("/usertodolist.jsp").forward(request, response);
+    }
+
+    public String getParameterByUrl(String url, Integer index){
+        String tempUrl = url;
+        int indexOf = tempUrl.lastIndexOf("/");
+        return tempUrl.substring(18, indexOf);
     }
 
 }

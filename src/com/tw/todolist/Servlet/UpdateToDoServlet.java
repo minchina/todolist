@@ -1,6 +1,5 @@
 package com.tw.todolist.Servlet;
 
-import com.tw.todolist.Dao.ToDoDao;
 import com.tw.todolist.Models.ToDo;
 import com.tw.todolist.Services.ToDoService;
 
