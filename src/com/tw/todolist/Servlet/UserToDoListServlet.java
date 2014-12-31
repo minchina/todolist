@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class UserToDoListServlet extends HttpServlet {
 
 
@@ -39,4 +38,5 @@ public class UserToDoListServlet extends HttpServlet {
         //The pathname must begin with a "/" and is interpreted as relative to the current context root.
         request.getRequestDispatcher("/usertodolist.jsp").forward(request, response);
     }
+
 }

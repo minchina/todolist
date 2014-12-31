@@ -33,9 +33,8 @@ public class UserListServlet extends HttpServlet {
         User user = null;
         String userName = request.getParameter("user_name");
         PrintWriter printWriter = response.getWriter();
-        Integer userId = 0;
         try {
-            user = new UserService().add(new User(userId, userName));
+            user = new UserService().add(new User(userName));
         } catch (Exception e) {
             e.printStackTrace();
         }

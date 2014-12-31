@@ -23,9 +23,9 @@ $(document).ready(function(){
         var user_id = $li.data("id");
         var user_name = $li.find("a").text();
         $.ajax({
-            url:"/todolist_v1/user",
+            url:"/todolist_v1/deleteuser",
             data:{user_id:user_id,user_name:user_name},
-            type:"DELETE",
+            type:"POST",
             success:function(json_user){
             }
         })
