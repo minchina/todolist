@@ -18,9 +18,8 @@ public class DeleteUserServlet extends HttpServlet{
     public void doPost(HttpServletRequest request,HttpServletResponse response){
         System.out.println("hh");
         Integer userId = Integer.valueOf(request.getParameter("user_id"));
-        String userName = request.getParameter("user_name");
         try {
-            new UserService().delete(new User(userId,userName));
+            new UserService().delete(new User(userId));
         } catch (SQLException e) {
             e.printStackTrace();
         }

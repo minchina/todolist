@@ -17,6 +17,10 @@ public class User {
         this.name = name;
     }
 
+    public User(int id){
+        this.id = id;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
