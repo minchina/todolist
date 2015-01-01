@@ -1,12 +1,8 @@
 package com.tw.todolist.Services;
 
 import com.tw.todolist.Dao.UserDao;
-import com.tw.todolist.Models.ToDo;
 import com.tw.todolist.Models.User;
-
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
